@@ -40,15 +40,12 @@ const items = (state = JSON.parse(localStorage.getItem('todo')) || [], {
       return newItem;
     }
     case CHECK: {
-      const newItem = state.map((item) =>
-      (item.id === id) ? {...item, checked: !item.checked} : item);
+      const newItem = state.map((item) => ((item.id === id) ? { ...item, checked: !item.checked } : item));
       setItem(newItem);
       return newItem;
     }
-      return ;
     case EDIT: {
-      const newItem = state.map((item) =>
-      (item.id === id) ? {...item, title : event.target.value} : item);
+      const newItem = state.map((item) => ((item.id === id) ? { ...item, title: event.target.value } : item));
       setItem(newItem);
       return newItem;
     }

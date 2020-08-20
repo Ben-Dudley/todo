@@ -19,13 +19,13 @@ class Task extends Component {
 
   render() {
     const {
-      checked, id, title, check, delTask, edit, items,
+      checked, id, title, delTask, edit, items, checkTask,
     } = this.props;
     const { editable } = this.state;
     return (
       <li>
         <Checkbox
-          check={check}
+          checkTask={checkTask}
           checked={checked}
           id={id}
         />
@@ -53,7 +53,7 @@ Task.propTypes = {
   checked: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  check: PropTypes.func.isRequired,
+  checkTask: PropTypes.func.isRequired,
   delTask: PropTypes.func.isRequired,
   edit: PropTypes.func.isRequired,
 };

@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "npx eslint --fix ./src/* "
+    "eslint": "npx eslint --fix ./src/*/* ./src/store.js ./src/index.js ./src/constans.js"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import Todo from './js/Todo.jsx';
+import Todo from './containers/Todo.jsx';
 import './css/index.css';
 
 ReactDOM.render((

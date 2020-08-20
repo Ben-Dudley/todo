@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Task from '../containers/Task.jsx';
 
 function ListTasks({
-  items, delTask, edit, check,
+  items, delTask, edit, checkTask,
 }) {
   return (
     <ol className="tasks">
@@ -14,7 +14,7 @@ function ListTasks({
           checked={item.checked}
           id={item.id}
           title={item.title}
-          check={check}
+          checkTask={checkTask}
           delTask={delTask}
           edit={edit}
         />
@@ -31,7 +31,7 @@ ListTasks.propTypes = {
       checked: PropTypes.bool.isRequired,
     }),
   ),
-  check: PropTypes.func.isRequired,
+  checkTask: PropTypes.func.isRequired,
   delTask: PropTypes.func.isRequired,
   edit: PropTypes.func.isRequired,
 };

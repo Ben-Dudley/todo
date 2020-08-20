@@ -2,19 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Checkbox({
-  check, checked, id,
+  checked, id, checkTask,
 }) {
+  const check = (event) => {
+    const checkBox = event.target;
+    checkBox.checked = !(checkBox.checked);
+    checkTask(event, id);
+  };
+
   return (
     <input
       type="checkbox"
-      onChange={() => check(id)}
+      onChange={check}
       checked={checked}
     />
   );
 }
 
 Checkbox.propTypes = {
-  check: PropTypes.func.isRequired,
+  checkTask: PropTypes.func.isRequired,
   checked: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
 };

@@ -24,6 +24,8 @@ export const delTask = (id) => ({
   id,
 });
 
-export const check = () => ({
+export const checkTask = (event, id) => ({
   type: CHECK,
+  event,
+  id,
 });
