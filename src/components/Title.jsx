@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Title({
-  title, editable, handleEditText, id,
+  title, editable, edit, id,
 }) {
   if (editable) {
     return (
@@ -10,7 +10,7 @@ function Title({
         className="todo-text"
         id={id}
         value={title}
-        onChange={handleEditText(id)}
+        onChange={(event) => edit(event, id)}
       />
     );
   }
@@ -24,7 +24,7 @@ function Title({
 Title.propTypes = {
   title: PropTypes.string.isRequired,
   editable: PropTypes.bool.isRequired,
-  handleEditText: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
 };
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from './Checkbox.jsx';
-import Title from './Title.jsx';
-import EditingTextTask from './EditingTextTask.jsx';
-import DeleteTask from './DeleteTask.jsx';
+import Checkbox from '../components/Checkbox.jsx';
+import Title from '../components/Title.jsx';
+import EditingTextTask from '../components/EditingTextTask.jsx';
+import DeleteTask from '../components/DeleteTask.jsx';
 
 class Task extends Component {
   constructor() {
@@ -19,25 +19,29 @@ class Task extends Component {
 
   render() {
     const {
-      checked, id, title, handleCheck, handleDeleteTask, handleEditText,
+      checked, id, title, check, delTask, edit, items,
     } = this.props;
     const { editable } = this.state;
     return (
       <li>
         <Checkbox
-          handleCheck={handleCheck}
+          check={check}
           checked={checked}
           id={id}
         />
         <Title
           title={title}
           editable={editable}
-          handleEditText={handleEditText}
+          edit={edit}
           id={id}
         />
-        <EditingTextTask edit={this.edit} />
+        <EditingTextTask
+          items={items}
+          edit={this.edit}
+        />
         <DeleteTask
-          handleDeleteTask={handleDeleteTask}
+          items={items}
+          delTask={delTask}
           id={id}
         />
       </li>
@@ -49,9 +53,9 @@ Task.propTypes = {
   checked: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  handleCheck: PropTypes.func.isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleEditText: PropTypes.func.isRequired,
+  check: PropTypes.func.isRequired,
+  delTask: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
 };
 
 export default Task;

@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Task from './Task.jsx';
+import Task from '../containers/Task.jsx';
 
 function ListTasks({
-  items, handleCheck, handleDeleteTask, handleEditText,
+  items, delTask, edit, check,
 }) {
   return (
     <ol className="tasks">
       {items.map((item) => (
         <Task
+          items={items}
           key={item.id}
           checked={item.checked}
           id={item.id}
           title={item.title}
-          handleCheck={handleCheck}
-          handleDeleteTask={handleDeleteTask}
-          handleEditText={handleEditText}
+          check={check}
+          delTask={delTask}
+          edit={edit}
         />
       ))}
     </ol>
@@ -30,9 +31,9 @@ ListTasks.propTypes = {
       checked: PropTypes.bool.isRequired,
     }),
   ),
-  handleCheck: PropTypes.func.isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
-  handleEditText: PropTypes.func.isRequired,
+  check: PropTypes.func.isRequired,
+  delTask: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
 };
 
 ListTasks.defaultProps = {

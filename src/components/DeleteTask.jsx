@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 function DeleteTask({
-  handleDeleteTask, id,
+  delTask, id,
 }) {
   return (
     <button
       type="button"
       className="icon-button delete"
-      onClick={handleDeleteTask(id)}
+      onClick={() => delTask(id)}
     >
       <FontAwesomeIcon icon={faTrashAlt} className="fas fa-pencil-alt icon" />
     </button>
@@ -18,7 +18,7 @@ function DeleteTask({
 }
 
 DeleteTask.propTypes = {
-  handleDeleteTask: PropTypes.func.isRequired,
+  delTask: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
 };
 
