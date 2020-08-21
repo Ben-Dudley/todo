@@ -1,0 +1,30 @@
+.li {
+    list-style-type: none;
+    font-size: 1.3em;
+    font-family: "Roboto", "Arial", sans-serif;
+    display: grid;
+    align-items: center;
+    grid-template-columns: min-content 1fr min-content min-content;
+    margin: 0.25em 0;
+  }
+
+  .iconButton {
+    background: none;
+    border: none;
+    border-radius: 0.2em;
+    outline: none;
+    color: transparent;
+    margin: 0 0.05em;
+    padding: 0.10em 0.11em;
+    font-size: 1em;
+    justify-self: flex-end;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+.li:hover > .iconButton {
+    color: rgba(202, 204, 206, 0.4);
+}
+  
+.li:hover > .iconButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

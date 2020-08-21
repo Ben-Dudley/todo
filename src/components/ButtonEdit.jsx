@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import styles from '../containers/Task.module.css';
 
-function EditingTextTask({ edit }) {
+function ButtonEdit({ edit }) {
   return (
     <button
       type="button"
-      className="icon-button write"
+      className={styles.iconButton}
       onClick={edit}
     >
       <FontAwesomeIcon icon={faPencilAlt} className="fas fa-pencil-alt icon" />
@@ -15,8 +16,8 @@ function EditingTextTask({ edit }) {
   );
 }
 
-EditingTextTask.propTypes = {
+ButtonEdit.propTypes = {
   edit: PropTypes.func.isRequired,
 };
 
-export default EditingTextTask;
+export default ButtonEdit;

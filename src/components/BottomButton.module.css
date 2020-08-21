@@ -1,0 +1,18 @@
+.button {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 0.25em;
+    font-size: 1em;
+    font-weight: bold;
+    width: 45%;
+    padding: 0.5em;
+    color: rgba(255, 255, 255, 0.9);
+    transition: background-color 0.2s;
+    font-family: "Roboto", "Arial", sans-serif;
+  
+  }
+  
+.button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './BottomButton.module.css';
 
 function ButtonDeleteList({ del }) {
   return (
     <button
       type="button"
-      className="delete-list"
+      className={styles.button}
       onClick={del}
     >
       Delete list

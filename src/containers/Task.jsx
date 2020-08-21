@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Checkbox from '../components/Checkbox.jsx';
 import Title from '../components/Title.jsx';
-import EditingTextTask from '../components/EditingTextTask.jsx';
-import DeleteTask from '../components/DeleteTask.jsx';
+import ButtonEdit from '../components/ButtonEdit.jsx';
+import ButtonDeleteTask from '../components/ButtonDeleteTask.jsx';
+import styles from './Task.module.css';
 
 class Task extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class Task extends Component {
     } = this.props;
     const { editable } = this.state;
     return (
-      <li>
+      <li className={styles.li}>
         <Checkbox
           checkTask={checkTask}
           checked={checked}
@@ -35,11 +36,11 @@ class Task extends Component {
           edit={edit}
           id={id}
         />
-        <EditingTextTask
+        <ButtonEdit
           items={items}
           edit={this.edit}
         />
-        <DeleteTask
+        <ButtonDeleteTask
           items={items}
           delTask={delTask}
           id={id}
@@ -50,12 +51,23 @@ class Task extends Component {
 }
 
 Task.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      checked: PropTypes.bool.isRequired,
+    }),
+  ),
   checked: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   checkTask: PropTypes.func.isRequired,
   delTask: PropTypes.func.isRequired,
   edit: PropTypes.func.isRequired,
+};
+
+Task.defaultProps = {
+  items: [],
 };
 
 export default Task;

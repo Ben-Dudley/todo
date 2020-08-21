@@ -6,7 +6,7 @@ function ListTasks({
   items, delTask, edit, checkTask,
 }) {
   return (
-    <ol className="tasks">
+    <ol>
       {items.map((item) => (
         <Task
           items={items}

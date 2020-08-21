@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Title.module.css';
 
 function Title({
   title, editable, edit, id,
@@ -7,7 +8,7 @@ function Title({
   if (editable) {
     return (
       <input
-        className="todo-text"
+        className={styles.title}
         id={id}
         value={title}
         onChange={(event) => edit(event, id)}
@@ -15,7 +16,7 @@ function Title({
     );
   }
   return (
-    <span className="todo-text">
+    <span className={styles.title}>
       {title}
     </span>
   );

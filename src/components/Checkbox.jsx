@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Title.module.css';
 
 function Checkbox({
   checked, id, checkTask,
@@ -12,6 +13,7 @@ function Checkbox({
 
   return (
     <input
+      className={styles.checkbox}
       type="checkbox"
       onChange={check}
       checked={checked}

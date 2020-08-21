@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './BottomButton.module.css';
 
 function ButtonNewTask({ items, add }) {
   const addTask = () => {
@@ -11,7 +12,7 @@ function ButtonNewTask({ items, add }) {
   return (
     <button
       type="button"
-      className="new-elem"
+      className={styles.button}
       onClick={addTask}
     >
       New task

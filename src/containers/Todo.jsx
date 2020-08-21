@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -7,22 +7,23 @@ import {
 import ListTasks from '../components/ListTasks.jsx';
 import ButtonNewTask from '../components/ButtonNewTask.jsx';
 import ButtomDeleteList from '../components/ButtonDeleteList.jsx';
+import styles from './Todo.module.css';
 
 function Todo({
-  items, add, del, delTask, edit, checkTask,
+  items, dispatchAdd, dispatchDel, dispatchDelTask, dispatchCheckTask, dispatchEdit,
 }) {
   return (
-    <div className="to-do">
-      <header>To-do list</header>
+    <div className={styles.todo}>
+      <header className={styles.header}>To-do list</header>
       <ListTasks
         items={items}
-        checkTask={checkTask}
-        delTask={delTask}
-        edit={edit}
+        checkTask={dispatchCheckTask}
+        delTask={dispatchDelTask}
+        edit={dispatchEdit}
       />
-      <div className="buttons">
-        <ButtonNewTask add={add} items={items} />
-        <ButtomDeleteList del={del} items={items} />
+      <div className={styles.buttons}>
+        <ButtonNewTask add={dispatchAdd} items={items} />
+        <ButtomDeleteList del={dispatchDel} items={items} />
       </div>
     </div>
   );
@@ -36,19 +37,23 @@ Todo.propTypes = {
       checked: PropTypes.bool.isRequired,
     }),
   ),
-  checkTask: PropTypes.func.isRequired,
-  delTask: PropTypes.func.isRequired,
-  edit: PropTypes.func.isRequired,
-  add: PropTypes.func.isRequired,
-  del: PropTypes.func.isRequired,
+  dispatchAdd: PropTypes.func.isRequired,
+  dispatchDel: PropTypes.func.isRequired,
+  dispatchDelTask: PropTypes.func.isRequired,
+  dispatchEdit: PropTypes.func.isRequired,
+  dispatchCheckTask: PropTypes.func.isRequired,
 };
 
 Todo.defaultProps = {
-  items: 'New task',
+  items: [],
 };
 
 export default connect((state) => ({
   items: state.items,
 }), {
-  add, del, delTask, edit, checkTask,
+  dispatchAdd: add,
+  dispatchDel: del,
+  dispatchDelTask: delTask,
+  dispatchEdit: edit,
+  dispatchCheckTask: checkTask,
 })(Todo);
